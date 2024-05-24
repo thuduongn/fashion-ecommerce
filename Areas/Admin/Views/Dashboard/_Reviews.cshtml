@@ -1,0 +1,139 @@
+﻿@page
+@model fashion.Areas.Admin.Views.Dashboard._ReviewsModel
+@{
+}
+
+<div class="col-12 col-lg-6 col-xl-4 d-flex">
+    <div class="card card--right pb-0">
+        <div class="card__wrapper">
+            <div class="card__container">
+                <div class="card__header">
+                    <div class="card__header-left">
+                        <h3 class="card__header-title">Reviews</h3>
+                    </div>
+                    <div class="card__tools-more">
+                        <button class="items-more__button">
+                            <svg class="icon-icon-more">
+                                <use xlink:href="#icon-more"></use>
+                            </svg>
+                        </button>
+                        <div class="dropdown-items">
+                            <div class="dropdown-items__container">
+                                <ul class="dropdown-items__list">
+                                    <li class="dropdown-items__item">
+                                        <a class="dropdown-items__link">
+                                            <span class="dropdown-items__link-icon">
+                                                <svg class="icon-icon-refresh">
+                                                    <use xlink:href="#icon-refresh"></use>
+                                                </svg>
+                                            </span>Refresh
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-items__item">
+                                        <a class="dropdown-items__link">
+                                            <span class="dropdown-items__link-icon">
+                                                <svg class="icon-icon-settings">
+                                                    <use xlink:href="#icon-settings"></use>
+                                                </svg>
+                                            </span>Settings
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-items__item">
+                                        <a class="dropdown-items__link">
+                                            <span class="dropdown-items__link-icon">
+                                                <svg class="icon-icon-download">
+                                                    <use xlink:href="#icon-download"></use>
+                                                </svg>
+                                            </span>Download
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-items__item">
+                                        <a class="dropdown-items__link">
+                                            <span class="dropdown-items__link-icon">
+                                                <svg class="icon-icon-action">
+                                                    <use xlink:href="#icon-action"></use>
+                                                </svg>
+                                            </span>Action
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card__body">
+                    <div class="card__review-list card__scrollbar scrollbar-thin scrollbar-visible" data-simplebar="data-simplebar">
+                        <div class="card__container">
+                            <div class="review-list">
+                                <div class="review-list__item">
+                                    <a class="review-list__avatar color-red" href="reviews.html">
+                                        <div class="review-list__avatar-text">KG</div>
+                                        <img src="~/Admin/img/content/humans/item-1.jpg" alt="#" />
+                                    </a>
+                                    <div class="review-list__right">
+                                        <h5 class="review-list__name"><a href="reviews.html">Kathy Graham</a></h5><span class="review-list__time">3 hours ago</span>
+                                        <div class="rating js-rating-stars" data-rating="5" data-readonly="true"></div>
+                                        <div class="review-list__message">
+                                            <p class="review-list__text">Nemo enim ipsam voluptatem, qui in ea voluptate veting esse quam nihil molestiae consequatur, vels illum utasle etcos quam voluptates recusandae.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-list__item">
+                                    <a class="review-list__avatar color-orange" href="reviews.html">
+                                        <div class="review-list__avatar-text">DF</div>
+                                        <img src="~/Admin/img/content/humans/item-4.jpg" alt="#" />
+                                    </a>
+                                    <div class="review-list__right">
+                                        <h5 class="review-list__name"><a href="reviews.html">Dale Fisher</a></h5><span class="review-list__time">5 hours ago</span>
+                                        <div class="rating js-rating-stars" data-rating="4" data-readonly="true"></div>
+                                        <div class="review-list__message">
+                                            <p class="review-list__text">At vero eos accusamus as iusto odio dignissimos provis ducimus, consectetur adipiscing elit, piscings obcaecati cupiditate nonpiscing provident fuga.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-list__item">
+                                    <a class="review-list__avatar color-teal" href="reviews.html">
+                                        <div class="review-list__avatar-text">BH</div>
+                                        <img src="~/Admin/img/content/humans/item-5.jpg" alt="#" />
+                                    </a>
+                                    <div class="review-list__right">
+                                        <h5 class="review-list__name"><a href="reviews.html">Bruce Henderson</a></h5><span class="review-list__time">6 hours ago</span>
+                                        <div class="rating js-rating-stars" data-rating="3" data-readonly="true"></div>
+                                        <div class="review-list__message">
+                                            <p class="review-list__text">Et harum quidem rerum facilis esits expedita distinctios, quia voluptas sit, aspernatur aut odit aut fugit, seedrnat dolores consequuntur magni...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-list__item">
+                                    <a class="review-list__avatar color-green" href="reviews.html">
+                                        <div class="review-list__avatar-text">JH</div>
+                                        <img src="~/Admin/img/content/humans/item-6.jpg" alt="#" />
+                                    </a>
+                                    <div class="review-list__right">
+                                        <h5 class="review-list__name"><a href="reviews.html">John Hendrix</a></h5><span class="review-list__time">8 hours ago</span>
+                                        <div class="rating js-rating-stars" data-rating="5" data-readonly="true"></div>
+                                        <div class="review-list__message">
+                                            <p class="review-list__text">Nemo enim ipsam voluptatem, qui in ea voluptate veting esse quam nihil molestiae consequatur, vels illum utasle etcos quam voluptates recusandae.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-list__item">
+                                    <a class="review-list__avatar color-blue" href="reviews.html">
+                                        <div class="review-list__avatar-text">SA</div>
+                                    </a>
+                                    <div class="review-list__right">
+                                        <h5 class="review-list__name"><a href="reviews.html">Stephen Allen</a></h5><span class="review-list__time">9 hours ago</span>
+                                        <div class="rating js-rating-stars" data-rating="4" data-readonly="true"></div>
+                                        <div class="review-list__message">
+                                            <p class="review-list__text">At vero eos accusamus as iusto odio dignissimos provis ducimus, consectetur adipiscing elit, piscings obcaecati cupiditate nonpiscing provident fuga.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

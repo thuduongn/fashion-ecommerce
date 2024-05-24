@@ -1,0 +1,318 @@
+﻿@page
+@model fashion.Areas.Admin.Views.Dashboard._CardModel
+@{
+}
+
+<section class="section">
+    <div class="section__title d-none">
+        <h2>Section</h2>
+    </div>
+    <div class="row gutter-bottom-xl">
+        <div class="col-12 col-md-6 col-lg-7 col-xl-4 d-flex">
+            <div class="card">
+                <div class="card__wrapper">
+                    <div class="card__container">
+                        <div class="card__header">
+                            <div class="card__header-left">
+                                <h3 class="card__header-title">Credit Card</h3>
+                            </div>
+                            <div class="card__tools-more">
+                                <button class="items-more__button">
+                                    <svg class="icon-icon-more">
+                                        <use xlink:href="#icon-more"></use>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-items">
+                                    <div class="dropdown-items__container">
+                                        <ul class="dropdown-items__list">
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-refresh">
+                                                            <use xlink:href="#icon-refresh"></use>
+                                                        </svg>
+                                                    </span>Refresh
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-settings">
+                                                            <use xlink:href="#icon-settings"></use>
+                                                        </svg>
+                                                    </span>Settings
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-download">
+                                                            <use xlink:href="#icon-download"></use>
+                                                        </svg>
+                                                    </span>Download
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-action">
+                                                            <use xlink:href="#icon-action"></use>
+                                                        </svg>
+                                                    </span>Action
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card__body">
+                            <div class="card__credit-card">
+                                <div class="credit-card">
+                                    <img class="credit-card__image" src="~/Admin/img/content/credit-card@3x.png" alt="#" />
+                                    <div class="credit-card__content">
+                                        <input class="credit-card__number" type="text" value="0123   4567   8910   1112" readonly="readonly" />
+                                        <div class="credit-card__name">Mark Anderson</div>
+                                        <div class="credit-card__date">12/31</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card__footer">
+                            <div class="card__container">
+                                <div class="card__credit-list">
+                                    <ul class="card-list">
+                                        <li class="card-list__item">
+                                            <div class="card-list__title">Card Type</div>
+                                            <div class="card-list__value">VISA</div>
+                                        </li>
+                                        <li class="card-list__item">
+                                            <div class="card-list__title">Card Holder</div>
+                                            <div class="card-list__value">Mark Anderson</div>
+                                        </li>
+                                        <li class="card-list__item">
+                                            <div class="card-list__title">Expire</div>
+                                            <div class="card-list__value">12/31</div>
+                                        </li>
+                                        <li class="card-list__item">
+                                            <div class="card-list__title">Card Number</div>
+                                            <div class="card-list__value">0123 4567 8910 1112</div>
+                                        </li>
+                                        <li class="card-list__item">
+                                            <div class="card-list__title">Balance</div>
+                                            <div class="card-list__value">$1,000,000</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5 col-xl-4 d-flex">
+            <div class="card">
+                <div class="card__wrapper">
+                    <div class="card__container">
+                        <div class="card__header">
+                            <div class="card__header-left">
+                                <h3 class="card__header-title">Add New Card</h3>
+                            </div>
+                            <div class="card__tools-more">
+                                <button class="items-more__button">
+                                    <svg class="icon-icon-more">
+                                        <use xlink:href="#icon-more"></use>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-items">
+                                    <div class="dropdown-items__container">
+                                        <ul class="dropdown-items__list">
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-refresh">
+                                                            <use xlink:href="#icon-refresh"></use>
+                                                        </svg>
+                                                    </span>Refresh
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-settings">
+                                                            <use xlink:href="#icon-settings"></use>
+                                                        </svg>
+                                                    </span>Settings
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-download">
+                                                            <use xlink:href="#icon-download"></use>
+                                                        </svg>
+                                                    </span>Download
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-action">
+                                                            <use xlink:href="#icon-action"></use>
+                                                        </svg>
+                                                    </span>Action
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card__body">
+                            <form class="add-card js-add-card-form" method="POST">
+                                <div class="form-group">
+                                    <label class="form-label">Name on Card</label>
+                                    <div class="input-group">
+                                        <input class="input" type="text" placeholder="Mark Anderson" required="required" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Card Number</label>
+                                    <div class="input-group input-group--append">
+                                        <input class="input js-card-number" type="text" placeholder="****   ****   ****   1234" required="required" /><span class="input-group__append"><img class="add-card__input-number-logo" src="~/Admin/img/content/visa-logo.png" alt="#" /></span>
+                                    </div>
+                                </div>
+                                <div class="row row--sm">
+                                    <div class="form-group col">
+                                        <label class="form-label">Expire Date</label>
+                                        <div class="input-group">
+                                            <input class="input js-card-date" type="text" placeholder="12/2020" required="required" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group col">
+                                        <label class="form-label">CVV Code</label>
+                                        <div class="input-group">
+                                            <input class="input js-card-cvv" type="text" placeholder="***" required="required" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="add-card__submit">
+                                    <button class="button button--primary button--block" type="submit">
+                                        <span class="button__icon button__icon--left">
+                                            <svg class="icon-icon-plus">
+                                                <use xlink:href="#icon-plus"></use>
+                                            </svg>
+                                        </span><span class="button__text">Add Card</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-12 col-xl-4 d-flex">
+            <div class="card">
+                <div class="card__wrapper">
+                    <div class="card__container">
+                        <div class="card__header">
+                            <div class="card__header-left">
+                                <h3 class="card__header-title">Saved Cards</h3>
+                            </div>
+                            <div class="card__tools-more">
+                                <button class="items-more__button">
+                                    <svg class="icon-icon-more">
+                                        <use xlink:href="#icon-more"></use>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-items">
+                                    <div class="dropdown-items__container">
+                                        <ul class="dropdown-items__list">
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-refresh">
+                                                            <use xlink:href="#icon-refresh"></use>
+                                                        </svg>
+                                                    </span>Refresh
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-settings">
+                                                            <use xlink:href="#icon-settings"></use>
+                                                        </svg>
+                                                    </span>Settings
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-download">
+                                                            <use xlink:href="#icon-download"></use>
+                                                        </svg>
+                                                    </span>Download
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-action">
+                                                            <use xlink:href="#icon-action"></use>
+                                                        </svg>
+                                                    </span>Action
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card__body">
+                            <div class="card__new-credits card__scrollbar scrollbar-thin scrollbar-visible" data-simplebar="data-simplebar">
+                                <div class="card__container">
+                                    <div class="card__credits-items row">
+                                        <div class="card__credits-item col-auto">
+                                            <div class="credit-card credit-card--light">
+                                                <img class="credit-card__image" src="~/Admin/img/content/credit-visa@3x.png" alt="#" />
+                                                <div class="credit-card__content">
+                                                    <input class="credit-card__number" type="text" value="0123   4567   8910   1112" readonly="readonly" />
+                                                    <div class="credit-card__name">Mark Anderson</div>
+                                                    <div class="credit-card__date">12/31</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card__credits-item col-auto">
+                                            <div class="credit-card credit-card--light">
+                                                <img class="credit-card__image" src="~/Admin/img/content/credit-mastercard@3x.png" alt="#" />
+                                                <div class="credit-card__content">
+                                                    <input class="credit-card__number" type="text" value="0123   4567   8910   1112" readonly="readonly" />
+                                                    <div class="credit-card__name">Mark Anderson</div>
+                                                    <div class="credit-card__date">12/31</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card__footer card__footer--md">
+                            <div class="card__container">
+                                <div class="card__credit-button">
+                                    <button class="button button--primary button--block" type="button">
+                                        <span class="button__icon button__icon--left">
+                                            <svg class="icon-icon-plus">
+                                                <use xlink:href="#icon-plus"></use>
+                                            </svg>
+                                        </span><span class="button__text">Add New Card</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

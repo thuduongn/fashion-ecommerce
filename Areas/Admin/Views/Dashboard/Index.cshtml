@@ -1,0 +1,561 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "../Shared/_Custom_Layout.cshtml";
+}
+
+    <main class="page-content">
+        <div class="container">
+            <div class="widgets">
+                @* <div class="widgets__row row gutter-bottom-xl"> *@
+                    @Html.Partial("../Dashboard/_Visits.cshtml")
+                    @Html.Partial("../Dashboard/_Orders.cshtml")
+                    @Html.Partial("../Dashboard/_Sales.cshtml")  
+                @* <div/> *@
+           </div>
+            @Html.Partial("../Dashboard/_Revenue_Profit.cshtml")
+            @Html.Partial("../Dashboard/_Overview_Statistics.cshtml")
+            @Html.Partial("../Dashboard/_Card.cshtml")
+            @* <section class="section">
+                <div class="section__title d-none">
+                    <h2>Section</h2>
+                </div>
+                <div class="row gutter-bottom-xl">
+                    <div class="col-12 col-lg-7 col-xl-8 d-flex">
+                        <div class="card card--lg">
+                            <div class="card__wrapper">
+                                <div class="card__container">
+                                    <div class="card__header">
+                                        <div class="card__header-left">
+                                            <h3 class="card__header-title">Revenue By Country</h3>
+                                        </div>
+                                        <div class="card__tools">
+                                            <div class="card__tools-row row row--xs gutter-bottom-xs">
+                                                <div class="card__tools-switcher col">
+                                                    <div class="switcher-button">
+                                                        <div class="switcher-button__items">
+                                                            <div class="switcher-button__float"></div>
+                                                            <div class="switcher-button__item">
+                                                                <button class="switcher-button__btn">Daily</button>
+                                                            </div>
+                                                            <div class="switcher-button__item active">
+                                                                <button class="switcher-button__btn">Weekly</button>
+                                                            </div>
+                                                            <div class="switcher-button__item">
+                                                                <button class="switcher-button__btn">Monthly</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card__tools-more">
+                                            <button class="items-more__button">
+                                                <svg class="icon-icon-more">
+                                                    <use xlink:href="#icon-more"></use>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-items">
+                                                <div class="dropdown-items__container">
+                                                    <ul class="dropdown-items__list">
+                                                        <li class="dropdown-items__item">
+                                                            <a class="dropdown-items__link">
+                                                                <span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-refresh">
+                                                                        <use xlink:href="#icon-refresh"></use>
+                                                                    </svg>
+                                                                </span>Refresh
+                                                            </a>
+                                                        </li>
+                                                        <li class="dropdown-items__item">
+                                                            <a class="dropdown-items__link">
+                                                                <span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-settings">
+                                                                        <use xlink:href="#icon-settings"></use>
+                                                                    </svg>
+                                                                </span>Settings
+                                                            </a>
+                                                        </li>
+                                                        <li class="dropdown-items__item">
+                                                            <a class="dropdown-items__link">
+                                                                <span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-download">
+                                                                        <use xlink:href="#icon-download"></use>
+                                                                    </svg>
+                                                                </span>Download
+                                                            </a>
+                                                        </li>
+                                                        <li class="dropdown-items__item">
+                                                            <a class="dropdown-items__link">
+                                                                <span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-action">
+                                                                        <use xlink:href="#icon-action"></use>
+                                                                    </svg>
+                                                                </span>Action
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card__body">
+                                        <div class="card__widgets">
+                                            <div class="card__widgets-row gutter-bottom-sm">
+                                                <div class="card-widget card-widget--xl">
+                                                    <h4 class="card-widget__title">Total Revenue</h4>
+                                                    <div class="card-widget__trade">
+                                                        <span class="card-widget__count">$210,000</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card__countries-progressbar">
+                                            <div class="progressbar progressbar--stacked progressbar--axis-top progressbar--lg">
+                                                <div class="progressbar__items">
+                                                    <div class="progressbar__bar progressbar__bar--green" style="width: 40%;">
+                                                        <span class="progressbar__bar-count">$70,000</span>
+                                                    </div>
+                                                    <div class="progressbar__bar progressbar__bar--orange" style="width: 20%;">
+                                                        <span class="progressbar__bar-count">$55,000</span>
+                                                    </div>
+                                                    <div class="progressbar__bar progressbar__bar--red" style="width: 20%;">
+                                                        <span class="progressbar__bar-count">$40,000</span>
+                                                    </div>
+                                                    <div class="progressbar__bar progressbar__bar--orange-dark" style="width: 10%;">
+                                                        <span class="progressbar__bar-count">$25,000</span>
+                                                    </div>
+                                                    <div class="progressbar__bar progressbar__bar--teal" style="width: 10%;">
+                                                        <span class="progressbar__bar-count">$20,000</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card__footer card__footer--lg">
+                                        <div class="card__container">
+                                            <div class="country-legend">
+                                                <div class="country-legend__row">
+                                                    <div class="country-legend__item">
+                                                        <div class="country-legend__left">
+                                                            <span class="country-legend__marker color-green"></span><span class="country-legend__name">Russia</span>
+                                                        </div>
+                                                        <div class="country-legend__trade">
+                                                            <span class="country-legend__quot quotation quotation--up">
+                                                                <svg class="icon-icon-arrow-down">
+                                                                    <use xlink:href="#icon-arrow-down"></use>
+                                                                </svg>
+                                                            </span><span class="country-legend__percentage">40%</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="country-legend__item">
+                                                        <div class="country-legend__left">
+                                                            <span class="country-legend__marker color-orange"></span><span class="country-legend__name">Australia</span>
+                                                        </div>
+                                                        <div class="country-legend__trade">
+                                                            <span class="country-legend__quot quotation quotation--down">
+                                                                <svg class="icon-icon-arrow-down">
+                                                                    <use xlink:href="#icon-arrow-down"></use>
+                                                                </svg>
+                                                            </span><span class="country-legend__percentage">20%</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="country-legend__item">
+                                                        <div class="country-legend__left">
+                                                            <span class="country-legend__marker color-red"></span><span class="country-legend__name">China</span>
+                                                        </div>
+                                                        <div class="country-legend__trade">
+                                                            <span class="country-legend__quot quotation quotation--up">
+                                                                <svg class="icon-icon-arrow-down">
+                                                                    <use xlink:href="#icon-arrow-down"></use>
+                                                                </svg>
+                                                            </span><span class="country-legend__percentage">20%</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="country-legend__item">
+                                                        <div class="country-legend__left">
+                                                            <span class="country-legend__marker color-orange-dark"></span><span class="country-legend__name">France</span>
+                                                        </div>
+                                                        <div class="country-legend__trade">
+                                                            <span class="country-legend__quot quotation quotation--down">
+                                                                <svg class="icon-icon-arrow-down">
+                                                                    <use xlink:href="#icon-arrow-down"></use>
+                                                                </svg>
+                                                            </span><span class="country-legend__percentage">10%</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="country-legend__item">
+                                                        <div class="country-legend__left">
+                                                            <span class="country-legend__marker color-teal"></span><span class="country-legend__name">USA</span>
+                                                        </div>
+                                                        <div class="country-legend__trade">
+                                                            <span class="country-legend__quot quotation quotation--up">
+                                                                <svg class="icon-icon-arrow-down">
+                                                                    <use xlink:href="#icon-arrow-down"></use>
+                                                                </svg>
+                                                            </span><span class="country-legend__percentage">10%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-5 col-xl-4 d-flex">
+                        <div class="card card--right pb-0">
+                            <div class="card__wrapper">
+                                <div class="card__container">
+                                    <div class="card__header">
+                                        <div class="card__header-left">
+                                            <h3 class="card__header-title">Transactions History</h3>
+                                        </div>
+                                        <div class="card__tools-more">
+                                            <button class="items-more__button">
+                                                <svg class="icon-icon-more">
+                                                    <use xlink:href="#icon-more"></use>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-items">
+                                                <div class="dropdown-items__container">
+                                                    <ul class="dropdown-items__list">
+                                                        <li class="dropdown-items__item">
+                                                            <a class="dropdown-items__link">
+                                                                <span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-refresh">
+                                                                        <use xlink:href="#icon-refresh"></use>
+                                                                    </svg>
+                                                                </span>Refresh
+                                                            </a>
+                                                        </li>
+                                                        <li class="dropdown-items__item">
+                                                            <a class="dropdown-items__link">
+                                                                <span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-settings">
+                                                                        <use xlink:href="#icon-settings"></use>
+                                                                    </svg>
+                                                                </span>Settings
+                                                            </a>
+                                                        </li>
+                                                        <li class="dropdown-items__item">
+                                                            <a class="dropdown-items__link">
+                                                                <span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-download">
+                                                                        <use xlink:href="#icon-download"></use>
+                                                                    </svg>
+                                                                </span>Download
+                                                            </a>
+                                                        </li>
+                                                        <li class="dropdown-items__item">
+                                                            <a class="dropdown-items__link">
+                                                                <span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-action">
+                                                                        <use xlink:href="#icon-action"></use>
+                                                                    </svg>
+                                                                </span>Action
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card__body">
+                                        <div class="card__transactions card__scrollbar scrollbar-thin scrollbar-visible" data-simplebar="data-simplebar">
+                                            <div class="card-transactions">
+                                                <div class="card-transactions__item">
+                                                    <div class="card-transactions__left">
+                                                        <div class="card-transactions__icon">
+                                                            <svg class="icon-icon-bill">
+                                                                <use xlink:href="#icon-bill"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="card-transactions__right">
+                                                            <h5 class="card-transactions__title">MacBook Pro</h5><span class="card-transactions__time">12:00 PM</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-transactions__details">
+                                                        <div class="card-transactions__cost">$2,500</div><a class="text-sm text-grey link-under" href="#">Detail</a>
+                                                    </div>
+                                                </div>
+                                                <div class="card-transactions__item">
+                                                    <div class="card-transactions__left">
+                                                        <div class="card-transactions__icon">
+                                                            <svg class="icon-icon-bill">
+                                                                <use xlink:href="#icon-bill"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="card-transactions__right">
+                                                            <h5 class="card-transactions__title">Apple Watch</h5><span class="card-transactions__time">01:00 PM</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-transactions__details">
+                                                        <div class="card-transactions__cost">$1,500</div><a class="text-sm text-grey link-under" href="#">Detail</a>
+                                                    </div>
+                                                </div>
+                                                <div class="card-transactions__item">
+                                                    <div class="card-transactions__left">
+                                                        <div class="card-transactions__icon">
+                                                            <svg class="icon-icon-bill">
+                                                                <use xlink:href="#icon-bill"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="card-transactions__right">
+                                                            <h5 class="card-transactions__title">AirPods</h5><span class="card-transactions__time">02:00 PM</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-transactions__details">
+                                                        <div class="card-transactions__cost">$500</div><a class="text-sm text-grey link-under" href="#">Detail</a>
+                                                    </div>
+                                                </div>
+                                                <div class="card-transactions__item">
+                                                    <div class="card-transactions__left">
+                                                        <div class="card-transactions__icon">
+                                                            <svg class="icon-icon-bill">
+                                                                <use xlink:href="#icon-bill"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="card-transactions__right">
+                                                            <h5 class="card-transactions__title">iPhone Xs Max</h5><span class="card-transactions__time">03:00 PM</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-transactions__details">
+                                                        <div class="card-transactions__cost">$2,500</div><a class="text-sm text-grey link-under" href="#">Detail</a>
+                                                    </div>
+                                                </div>
+                                                <div class="card-transactions__item">
+                                                    <div class="card-transactions__left">
+                                                        <div class="card-transactions__icon">
+                                                            <svg class="icon-icon-bill">
+                                                                <use xlink:href="#icon-bill"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="card-transactions__right">
+                                                            <h5 class="card-transactions__title">IPad Pro 10.5</h5><span class="card-transactions__time">04:00 PM</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-transactions__details">
+                                                        <div class="card-transactions__cost">$1,000</div><a class="text-sm text-grey link-under" href="#">Detail</a>
+                                                    </div>
+                                                </div>
+                                                <div class="card-transactions__item">
+                                                    <div class="card-transactions__left">
+                                                        <div class="card-transactions__icon">
+                                                            <svg class="icon-icon-bill">
+                                                                <use xlink:href="#icon-bill"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="card-transactions__right">
+                                                            <h5 class="card-transactions__title">iMac Pro</h5><span class="card-transactions__time">05:00 PM</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-transactions__details">
+                                                        <div class="card-transactions__cost">$5,000</div><a class="text-sm text-grey link-under" href="#">Detail</a>
+                                                    </div>
+                                                </div>
+                                                <div class="card-transactions__item">
+                                                    <div class="card-transactions__left">
+                                                        <div class="card-transactions__icon">
+                                                            <svg class="icon-icon-bill">
+                                                                <use xlink:href="#icon-bill"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="card-transactions__right">
+                                                            <h5 class="card-transactions__title">AirPods</h5><span class="card-transactions__time">02:00 PM</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-transactions__details">
+                                                        <div class="card-transactions__cost">$500</div><a class="text-sm text-grey link-under" href="#">Detail</a>
+                                                    </div>
+                                                </div>
+                                                <div class="card-transactions__item">
+                                                    <div class="card-transactions__left">
+                                                        <div class="card-transactions__icon">
+                                                            <svg class="icon-icon-bill">
+                                                                <use xlink:href="#icon-bill"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="card-transactions__right">
+                                                            <h5 class="card-transactions__title">iPhone Xs Max</h5><span class="card-transactions__time">03:00 PM</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-transactions__details">
+                                                        <div class="card-transactions__cost">$2,500</div><a class="text-sm text-grey link-under" href="#">Detail</a>
+                                                    </div>
+                                                </div>
+                                                <div class="card-transactions__item">
+                                                    <div class="card-transactions__left">
+                                                        <div class="card-transactions__icon">
+                                                            <svg class="icon-icon-bill">
+                                                                <use xlink:href="#icon-bill"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="card-transactions__right">
+                                                            <h5 class="card-transactions__title">IPad Pro 10.5</h5><span class="card-transactions__time">04:00 PM</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-transactions__details">
+                                                        <div class="card-transactions__cost">$1,000</div><a class="text-sm text-grey link-under" href="#">Detail</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> *@
+            @Html.Partial("../Dashboard/_Transactions.cshtml")
+            <section class="section">
+                <div class="section__title d-none">
+                    <h2>Section</h2>
+                </div>
+                <div class="row gutter-bottom-xl">
+                    @* <div class="col-12 col-lg-6 col-xl-8 d-flex">
+                        <div class="card pb-0">
+                            <div class="card__wrapper">
+                                <div class="card__container">
+                                    <div class="card__header">
+                                        <div class="card__header-left">
+                                            <h3 class="card__header-title">Sales by country</h3>
+                                        </div>
+                                        <div class="card__tools-more">
+                                            <button class="items-more__button">
+                                                <svg class="icon-icon-more">
+                                                    <use xlink:href="#icon-more"></use>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-items">
+                                                <div class="dropdown-items__container">
+                                                    <ul class="dropdown-items__list">
+                                                        <li class="dropdown-items__item">
+                                                            <a class="dropdown-items__link">
+                                                                <span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-refresh">
+                                                                        <use xlink:href="#icon-refresh"></use>
+                                                                    </svg>
+                                                                </span>Refresh
+                                                            </a>
+                                                        </li>
+                                                        <li class="dropdown-items__item">
+                                                            <a class="dropdown-items__link">
+                                                                <span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-settings">
+                                                                        <use xlink:href="#icon-settings"></use>
+                                                                    </svg>
+                                                                </span>Settings
+                                                            </a>
+                                                        </li>
+                                                        <li class="dropdown-items__item">
+                                                            <a class="dropdown-items__link">
+                                                                <span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-download">
+                                                                        <use xlink:href="#icon-download"></use>
+                                                                    </svg>
+                                                                </span>Download
+                                                            </a>
+                                                        </li>
+                                                        <li class="dropdown-items__item">
+                                                            <a class="dropdown-items__link">
+                                                                <span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-action">
+                                                                        <use xlink:href="#icon-action"></use>
+                                                                    </svg>
+                                                                </span>Action
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card__body">
+                                        <div class="card-country card__table card__scrollbar">
+                                            <div class="card-country__map" id="mapCountry"></div>
+                                            <div class="card-country__items scrollbar-thin scrollbar-visible" data-simplebar="data-simplebar">
+                                                <table class="table table--lines">
+                                                    <colgroup>
+                                                        <col class="colgroup-1" />
+                                                        <col class="colgroup-2" />
+                                                        <col />
+                                                    </colgroup>
+                                                    <tbody>
+                                                        <tr class="table__row">
+                                                            <td class="table__td text-nowrap">
+                                                                <img class="card-country__flag" src="~/Admin/img/content/flags/au.svg" alt="#" /><span class="card-country__name">Australia</span>
+                                                            </td>
+                                                            <td class="table__td text-nowrap">
+                                                                <span class="card-country__sales">Sales: <span class="font-weight-medium">25,000</span></span><span class="quotation quotation--up">
+                                                                    <svg class="icon-icon-arrow-down">
+                                                                        <use xlink:href="#icon-arrow-down"></use>
+                                                                    </svg>
+                                                                </span>
+                                                            </td>
+                                                            <td class="table__td">
+                                                                <span class="text-grey">40%</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="table__row">
+                                                            <td class="table__td text-nowrap">
+                                                                <img class="card-country__flag" src="~/Admin/img/content/flags/ru.svg" alt="#" /><span class="card-country__name">Russia</span>
+                                                            </td>
+                                                            <td class="table__td text-nowrap">
+                                                                <span class="card-country__sales">Sales: <span class="font-weight-medium">10,000</span></span><span class="quotation quotation--up">
+                                                                    <svg class="icon-icon-arrow-down">
+                                                                        <use xlink:href="#icon-arrow-down"></use>
+                                                                    </svg>
+                                                                </span>
+                                                            </td>
+                                                            <td class="table__td">
+                                                                <span class="text-grey">20%</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="table__row">
+                                                            <td class="table__td text-nowrap">
+                                                                <img class="card-country__flag" src="~/Admin/img/content/flags/us.svg" alt="#" /><span class="card-country__name">United States</span>
+                                                            </td>
+                                                            <td class="table__td text-nowrap">
+                                                                <span class="card-country__sales">Sales: <span class="font-weight-medium">5,000</span></span><span class="quotation quotation--down">
+                                                                    <svg class="icon-icon-arrow-down">
+                                                                        <use xlink:href="#icon-arrow-down"></use>
+                                                                    </svg>
+                                                                </span>
+                                                            </td>
+                                                            <td class="table__td">
+                                                                <span class="text-grey">15%</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="table__row">
+                                                            <td class="table__td text-nowrap">
+                                                                <img class="card-country__flag" src="~/Admin/img/content/flags/cn.svg" alt="#" /><span class="card-country__name">China</span>
+                                                            </td>
+                                                            <td class="table__td text-nowrap">
+                                                                <span class="card-country__sales">Sales: <span class="font-weight-medium">2,000</span></span><span class="quotation quotation--down">
+                                                                    <svg class="icon-icon-arrow-down">
+                                                                        <use xlink:href="#icon-arrow-down"></use>
+                                                                    </svg>
+                                                                </span>
+                                                            </td>
+                                                            <td class="table__td">
+                                                                <span class="text-grey">10%</span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> *@
+                </div>
+                @Html.Partial("../Dashboard/_Reviews.cshtml")
+            </section>
+            @Html.Partial("../Dashboard/_Calendar.cshtml")
+        </div>
+    </main>
+</div>

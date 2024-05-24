@@ -1,0 +1,66 @@
+﻿@model fashion.Data.User
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <meta name="description" content="This is the best dashboard" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="This is the best dashboard" />
+    <meta name="apple-mobile-web-app-title" content="Admin Dashboard" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link href="~/Admin/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- <link rel="manifest" href="~/Admin/img/content/favicons/manifest.json" />-->
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+</head>
+
+<body >
+    <div class="container">
+        <div class="row">
+            <form method="post" enctype="multipart/form-data" asp-area="Admin" asp-controller="Users" asp-action="Login">
+                <h3>@ViewBag.success</h3>
+                <div class="row justify-content-md-center">
+                    <div class="col-md-12">
+                        <h1>Login</h1>
+                        <h3>@ViewBag.error</h3>
+                        @* <div class="card">
+                        <div class="card-header">
+                        Login
+                        <h1>@ViewBag.error</h1>
+                        </div>
+                        <div class="card-body"> *@
+                        <div class="form-group">
+                            <label for="UserName">User name</label>
+                            <input for="UserName" class="form-control" name="UserName" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Password">Password</label>
+                            <input for="Password" type="password" class="form-control" name="Password" />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" class="btn btn-primary" value="Login" />
+                        </div>
+                        @* </div>
+                        </div> *@
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

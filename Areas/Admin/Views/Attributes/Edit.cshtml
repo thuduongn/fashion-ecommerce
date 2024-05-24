@@ -1,0 +1,61 @@
+﻿@model fashion.Data.Attribute
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Custom_Layout.cshtml";
+}
+
+<main class="page-content">
+    <div class="container">
+        <h1>Edit</h1>
+
+        <h4>Attribute</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-are="Admin" asp-controller="Attributes" asp-action="Edit" method="POST">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ParentId" class="control-label"></label>
+                        <select asp-for="ParentId">
+                            @if (ViewBag.ListAttribute != null)
+                            {
+                                foreach (var x in ViewBag.ListAttribute)
+                                {
+                                    if (x.Id == Model.ParentId)
+                                    {
+                                        <option value="@x.Id" selected>@x.Name</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@x.Id">@x.Name</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</main>

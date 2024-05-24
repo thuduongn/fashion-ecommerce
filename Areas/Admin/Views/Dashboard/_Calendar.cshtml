@@ -1,0 +1,101 @@
+﻿@page
+@model fashion.Areas.Admin.Views.Dashboard._CalendarModel
+@{
+}
+
+<section class="section">
+    <div class="section__title d-none">
+        <h2>Section</h2>
+    </div>
+    <div class="row gutter-bottom-xl">
+        <div class="col-12 col-md-6 col-xl-4 d-flex">
+            <div class="card pb-0">
+                <div class="card__wrapper">
+                    <div class="card__container">
+                        <div class="card__header">
+                            <div class="card__header-left">
+                                <h3 class="card__header-title">Calendar</h3>
+                            </div>
+                            <div class="card__tools-more">
+                                <button class="items-more__button">
+                                    <svg class="icon-icon-more">
+                                        <use xlink:href="#icon-more"></use>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-items">
+                                    <div class="dropdown-items__container">
+                                        <ul class="dropdown-items__list">
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-refresh">
+                                                            <use xlink:href="#icon-refresh"></use>
+                                                        </svg>
+                                                    </span>Refresh
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-settings">
+                                                            <use xlink:href="#icon-settings"></use>
+                                                        </svg>
+                                                    </span>Settings
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-download">
+                                                            <use xlink:href="#icon-download"></use>
+                                                        </svg>
+                                                    </span>Download
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-items__item">
+                                                <a class="dropdown-items__link">
+                                                    <span class="dropdown-items__link-icon">
+                                                        <svg class="icon-icon-action">
+                                                            <use xlink:href="#icon-action"></use>
+                                                        </svg>
+                                                    </span>Action
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card__body">
+                            <div class="calendar-inline" id="calendarOne">
+                                <div class="js-calendar-inline"></div>
+                            </div>
+                        </div>
+                        <div class="card__footer card__footer--md">
+                            <div class="card__container">
+                                <div class="calendar-widget" data-calendar="#calendarOne">
+                                    <div class="calendar-widget__row">
+                                        <div class="calendar-widget__item calendar-widget__item--left">
+                                            <div class="calendar-widget__day">
+                                                <span class="calendar-widget__dateday">13</span><sup class="calendar-widget__weekday text-grey">TH</sup>
+                                            </div>
+                                            <div class="calendar-widget__month text-grey">December</div>
+                                        </div>
+                                        <div class="calendar-widget__item">
+                                            <div class="calendar-widget__status">
+                                                <span class="circle color-green"></span><span>Upcoming</span>
+                                            </div>
+                                            <div class="calendar-widget__order text-grey">
+                                                Order Delivery 04:30 PM
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

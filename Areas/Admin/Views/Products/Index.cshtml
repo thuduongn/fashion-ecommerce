@@ -1,0 +1,762 @@
+﻿@model IEnumerable<fashion.Data.Product>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Custom_Layout.cshtml";
+}
+
+    <main class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-header__title">Products</h1>
+            </div>
+            <div class="page-tools">
+                <div class="page-tools__breadcrumbs">
+                    <div class="breadcrumbs">
+                        <div class="breadcrumbs__container">
+                            <ol class="breadcrumbs__list">
+                                <li class="breadcrumbs__item">
+                                    <a class="breadcrumbs__link" href="index.html">
+                                        <svg class="icon-icon-home breadcrumbs__icon">
+                                            <use xlink:href="#icon-home"></use>
+                                        </svg>
+                                        <svg class="icon-icon-keyboard-right breadcrumbs__arrow">
+                                            <use xlink:href="#icon-keyboard-right"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="breadcrumbs__item disabled">
+                                    <a class="breadcrumbs__link" href="#">
+                                        <span>E-commerce</span>
+                                        <svg class="icon-icon-keyboard-right breadcrumbs__arrow">
+                                            <use xlink:href="#icon-keyboard-right"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="breadcrumbs__item active">
+                                    <span class="breadcrumbs__link">Products</span>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-tools__right">
+                    <div class="page-tools__right-row">
+                        <div class="page-tools__right-item">
+                            <a class="button-icon" href="#">
+                                <span class="button-icon__icon">
+                                    <svg class="icon-icon-print">
+                                        <use xlink:href="#icon-print"></use>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="page-tools__right-item">
+                            <a class="button-icon" href="#">
+                                <span class="button-icon__icon">
+                                    <svg class="icon-icon-import">
+                                        <use xlink:href="#icon-import"></use>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="toolbox">
+                <div class="toolbox__row row gutter-bottom-xs">
+                    <div class="toolbox__left col-12 col-lg">
+                        <div class="toolbox__left-row row row--xs gutter-bottom-xs">
+                            <div class="form-group form-group--inline col-12 col-sm-auto">
+                                <label class="form-label">Show</label>
+                                <div class="input-group input-group--white input-group--append">
+                                    @* <input class="input input--select" type="text" value="10" size="1" data-toggle="dropdown" readonly> *@
+                                    <select name="quantityFilter" class="input js-input-select dropdown-menu quantity-filter" data-placeholder="">
+                                        @if(ViewBag.QuantitySelected == 10)
+                                        {
+                                            <option value="10"  selected="selected">10</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="10">10</option>
+                                        }
+                                        @if(ViewBag.QuantitySelected == 15)
+                                        {
+                                            <option value="15"  selected="selected">15</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="15">15</option>
+                                        }
+                                        @if(ViewBag.QuantitySelected == 20)
+                                        {
+                                            <option value="20"  selected="selected">20</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="20">20</option>
+                                        }
+                                    </select>
+                                    <span class="input-group__arrow">
+                                        <svg class="icon-icon-keyboard-down">
+                                            <use xlink:href="#icon-keyboard-down"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group form-group--inline col col-sm-auto">
+                                <div class="input-group input-group--white input-group--append">
+                                <select name="categoryFilter" class="input js-input-select dropdown-menu category-filter" data-placeholder="">
+                                    
+                                    @if(ViewBag.CategorySelected == 0)
+                                    {
+                                        <option value="0" selected="selected" class="dropdown-menu__item active">
+                                            All Categories
+                                        </option>
+                                    }
+                                    else
+                                    {
+                                        <option value="0" class="dropdown-menu__item">
+                                            All Categories
+                                        </option>
+                                    }
+                                    @foreach(var category in ViewBag.Categories)
+                                    {
+                                        @if(ViewBag.CategorySelected == category.Id)
+                                        {
+                                            <option value="@category.Id" selected="selected"  class="dropdown-menu__item">
+                                                @category.Name
+                                            </option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@category.Id" class="dropdown-menu__item">
+                                                @category.Name
+                                            </option>
+                                        }
+                                        
+                                    }
+                                </select>
+                                    <span class="input-group__arrow">
+                                        <svg class="icon-icon-keyboard-down">
+                                            <use xlink:href="#icon-keyboard-down"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group form-group--inline col-12 col-sm-auto d-none d-sm-block">    
+                                <div class="toolbox__status input-group input-group--white input-group--append">
+                                    @* <div class="dropdown-menu dropdown-menu--right dropdown-menu--fluid js-dropdown-select"> *@
+                                        <select name="statusFilter" class="input js-input-select dropdown-menu status-filter" data-placeholder="">
+                                        @if(ViewBag.StatusSelected == 3)
+                                        {
+                                            <option value="3" selected="selected">All status</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="3">All status</option>
+                                        }
+                                        @if(ViewBag.StatusSelected == 1)
+                                        {
+                                            <option value="1"  selected="selected">Public</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="1">Public</option>
+                                        }
+                                        @if(ViewBag.StatusSelected == 0)
+                                        {
+                                            <option value="0"  selected="selected">Private</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="0">Private</option>
+                                        }
+                                        @if(ViewBag.StatusSelected == 2)
+                                        {
+                                            <option value="2" selected="selected" >Deleted</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="2" >Deleted</option>
+                                        }
+                                            
+                                        </select>
+                                        <span class="input-group__arrow">
+                                            <svg class="icon-icon-keyboard-down">
+                                                <use xlink:href="#icon-keyboard-down"></use>
+                                            </svg>
+                                        </span>
+                                    @* </div> *@
+                                </div>
+                            </div>
+                            @* <div class="form-group form-group--inline col-12 col-sm-auto d-none d-sm-block">
+                                <div class="toolbox__status input-group input-group--white input-group--append">
+                                    <input class="input input--select" type="text" value="All status" data-toggle="dropdown" readonly><span class="input-group__arrow">
+                                        <svg class="icon-icon-keyboard-down">
+                                            <use xlink:href="#icon-keyboard-down"></use>
+                                        </svg>
+                                    </span>
+                                    <div class="dropdown-menu dropdown-menu--right dropdown-menu--fluid js-dropdown-select">
+                                    <select name="statusFilter" class="input js-input-select dropdown-menu status-filter" data-placeholder="">
+                                        <option value="3" selected="selected">All status</option>
+                                        <option value="1">Public</option>
+                                        <option value="0">Private</option>
+                                        <option value="2">Deleted</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div> *@
+                        </div>
+                    </div>
+                    <div class="toolbox__right col-12 col-lg-auto">
+                        <div class="toolbox__right-row row row--xs flex-nowrap">
+                            <div class="col col-lg-auto">
+                                <form class="toolbox__search" method="GET">
+                                    <div class="input-group input-group--white input-group--prepend">
+                                        <div class="input-group__prepend">
+                                            <svg class="icon-icon-search">
+                                                <use xlink:href="#icon-search"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="input-group input-group--white input-group--append">
+                                            <input class="search-products input" value="@ViewBag.NameSelected" type="text" placeholder="Search product" data-toggle="dropdown">
+                                            <div id="product-list" class="dropdown-menu dropdown-menu--right dropdown-menu--fluid js-dropdown-select">
+                                            </div>
+                                        @*< ul id="product-list">
+
+                                        </ul> *@
+                                        </div>
+                                </form>
+                            </div>
+                            @* <div class="col-auto">
+                                <button class="button-add button-add--blue" data-modal="#addProduct">
+                                    <span class="button-add__icon">
+                                        <svg class="icon-icon-plus">
+                                            <use xlink:href="#icon-plus"></use>
+                                        </svg>
+                                    </span><span class="button-add__text"></span>
+                                </button>
+                            </div> *@
+                        </div>
+                        <div class="col-auto">
+                            <button class="button-add button-add--blue" data-modal="#addProduct">
+                                <span class="button-add__icon">
+                                    <svg class="icon-icon-plus">
+                                        <use xlink:href="#icon-plus"></use>
+                                    </svg>
+                                </span><span class="button-add__text"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <p></p>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <div class="table-wrapper__content table-collapse scrollbar-thin scrollbar-visible" data-simplebar>
+                    <table class="table table--lines">
+                        <colgroup>
+                            <col width="90px">
+                            <col width="100px">
+                            <col width="350px">
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <thead class="table__header">
+                            <tr class="table__header-row">
+                                <th>
+                                    <div class="table__checkbox table__checkbox--all">
+                                        <label class="checkbox">
+                                            <input class="js-checkbox-all" type="checkbox" data-checkbox-all="product"><span class="checkbox__marker">
+                                                <span class="checkbox__marker-icon">
+                                                    <svg class="icon-icon-checked">
+                                                        <use xlink:href="#icon-checked"></use>
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </th>
+                                <th class="d-none d-lg-table-cell">
+                                    <span>ID</span>
+                                </th>
+                                <th class="table__th-sort">
+                                    <span class="align-middle">Product Name</span><span class="sort sort--down"></span>
+                                </th>
+                                <th class="table__th-sort">
+                                    <span class="align-middle">Category</span><span class="sort sort--down"></span>
+                                </th>
+                                <th class="table__th-sort">
+                                    <span class="align-middle">Price</span><span class="sort sort--down"></span>
+                                </th>
+                                <th class="table__th-sort d-none d-lg-table-cell">
+                                    <span class="align-middle">Date</span><span class="sort sort--down"></span>
+                                </th>
+                                <th class="table__th-sort d-none d-sm-table-cell">
+                                    <span class="align-middle">Status</span><span class="sort sort--down"></span>
+                                </th>
+                                <th class="table__actions"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="product-search">
+                        @foreach(var product in ViewBag.Products)
+                        {
+                            <tr class="table__row">
+                                <td class="table__td">
+                                    <div class="table__checkbox table__checkbox--all">
+                                        <label class="checkbox">
+                                            <input type="checkbox" data-checkbox="product"><span class="checkbox__marker">
+                                                <span class="checkbox__marker-icon">
+                                                    <svg class="icon-icon-checked">
+                                                        <use xlink:href="#icon-checked"></use>
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="d-none d-lg-table-cell table__td">
+                                    <span class="text-grey">@product.Id</span>
+                                </td>
+                                <td class="table__td">@product.ProductName</td>
+                                <td class="table__td">
+                                    <span class="text-grey">@product.ProductCategories</span>
+                                </td>
+                                <td class="table__td">
+                                    <span>@product.ProductPrice</span>
+                                </td>
+                                <td class="d-none d-lg-table-cell table__td">
+                                    <span class="text-grey">@product.ProductDate</span>
+                                </td>
+                                <td class="d-none d-sm-table-cell table__td">
+                                    @if (@product.ProductDeleted == 1)
+                                    {
+                                        <div class="table__status"><span class="table__status-icon color-red"></span> Deleted</div>
+                                    }
+                                    else if (@product.ProductStatus == 1)
+                                    {
+                                        <div class="table__status"><span class="table__status-icon color-green"></span> Public</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="table__status"><span class="table__status-icon color-orange"></span> Private</div>
+                                    }
+                                </td>
+                                <td class="table__td table__actions">
+                                    <div class="items-more">
+                                        <button class="items-more__button">
+                                            <svg class="icon-icon-more">
+                                                <use xlink:href="#icon-more"></use>
+                                            </svg>
+                                        </button>
+                                        <div class="dropdown-items dropdown-items--right">
+                                            <div class="dropdown-items__container">
+                                                <ul class="dropdown-items__list">
+                                                    <li class="dropdown-items__item">
+                                                        <a asp-area="Admin" asp-controller="Products" asp-action="Details" asp-route-id="@product.Id" class="dropdown-items__link">
+                                                            <span class="dropdown-items__link-icon">
+                                                                <svg class="icon-icon-view">
+                                                                    <use xlink:href="#icon-view"></use>
+                                                                </svg>
+                                                            </span>Details
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown-items__item">
+                                                        <a asp-area="Admin" asp-controller="Reviews" asp-action="Index" asp-route-id="@product.Id" class="dropdown-items__link">
+                                                            <span class="dropdown-items__link-icon">
+                                                                <svg class="icon-icon-view">
+                                                                    <use xlink:href="#icon-view"></use>
+                                                                </svg>
+                                                            </span>Review
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown-items__item">
+                                                        <a class="dropdown-items__link">
+                                                            <span class="dropdown-items__link-icon">
+                                                                <svg class="icon-icon-trash">
+                                                                    <use xlink:href="#icon-trash"></use>
+                                                                </svg>
+                                                            </span>Delete
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-wrapper__footer">
+                    <div class="d-flex justify-content-center">
+                        <div class="table-wrapper__pagination col-auto">
+                        <div class="table-wrapper__pagination col-auto">
+                            <ol class="pagination">
+
+                                <li class="pagination__item">
+                                    <span id="prev-page" class="pagination__arrow pagination__arrow--prev" href="?page=@(ViewBag.page-1)">
+                                        <svg class="icon-icon-keyboard-left">
+                                            <use xlink:href="#icon-keyboard-left"></use>
+                                        </svg>
+                                    </span>
+                                </li
+                                <li class="pagination__item">
+                                    <span id="next-page" class="pagination__arrow pagination__arrow--next" href="?page=@(ViewBag.page+1)">
+                                        <svg class="icon-icon-keyboard-right">
+                                            <use xlink:href="#icon-keyboard-right"></use>
+                                        </svg>
+                                    </span>
+                                </li>
+                                
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<div class="modal modal--panel modal--right" id="addProduct">
+    <div class="modal__overlay" data-dismiss="modal"></div>
+    <div class="modal__wrap">
+        <div class="modal__window scrollbar-thin" data-simplebar>
+            <div class="modal__content">
+                <div class="modal__header">
+                    <div class="modal__container">
+                        <h2 class="modal__title">Add Product</h2>
+                    </div>
+                </div>
+                <div class="modal__body">
+                    <div class="modal__container">
+                        <form asp-area="Admin" asp-controller="Products" asp-action="Test" method="POST" enctype="multipart/form-data">
+                            <div class="row row--md">
+                                <div class="col-12 form-group form-group--lg">
+                                    <label class="form-label">Product Name</label>
+                                    <div class="input-group">
+                                        <input name="name" class="input" type="text" placeholder="" value="Dress A" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 form-group form-group--lg">
+                                    <label class="form-label">Slug</label>
+                                    <div class="input-group">
+                                        <input name="slug" class="input" type="text" placeholder="" value="Dress-A" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 form-group form-group--lg">
+                                    <label class="form-label">Abstract</label>
+                                    <div class="input-editor">
+                                        <textarea class="js-description-editor" name="abstract" rows="4" cols="60">
+                                                        Fundamentally redesigned and reengineered. The largest Apple Watch display yet. Built-in electrical heart sensor. New Digital Crown with haptic feedback. Low and high heart rate notifications. Fall detection
+                                                        and Emergency SOS.
+                                        </textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 form-group form-group--lg">
+                                    <label class="form-label">Description</label>
+                                    <div class="input-editor">
+                                        <textarea class="js-description-editor" name="desc" rows="4" cols="60">
+                                                        Fundamentally redesigned and reengineered. The largest Apple Watch display yet. Built-in electrical heart sensor. New Digital Crown with haptic feedback. Low and high heart rate notifications. Fall detection
+                                                        and Emergency SOS.
+                                        </textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 form-group form-group--lg">
+                                    <label class="form-label">Price</label>
+                                    <div class="input-group input-group--prepend">
+                                        <div class="input-group__prepend">
+                                            <span class="input-group__symbol">$</span>
+                                        </div>
+                                        <input name="price" class="input" type="number" min="0" max="999999999" placeholder="" value="399" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 form-group form-group--lg">
+                                    <label class="form-label">Quantity</label>
+                                    <div class="input-group">
+                                        <input name="quantity" class="input" type="number" min="0" max="100" placeholder="" value="10" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 form-group form-group--lg">
+                                    <label class="form-label">Brands</label>
+                                    <div class="input-group input-group--append">
+                                        <select class="input js-input-select input--fluid" name="brands" data-placeholder="">
+                                            @foreach(var brand in ViewBag.Brands)
+                                            {
+                                                <option value="@brand.Id">
+                                                    @brand.Name
+                                                </option> 
+                                            }
+                                        </select>
+                                        <span class="input-group__arrow">
+                                            <svg class="icon-icon-keyboard-down">
+                                                <use xlink:href="#icon-keyboard-down"></use>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 form-group form-group--lg mb-0">
+                                    <label class="form-label">Categories</label>
+                                    <select name="categories" class="input js-input-tags" multiple="multiple" data-placeholder="">
+                                        @foreach(var category in ViewBag.Categories)
+                                            {
+                                                <option value="@category.Id">
+                                                    @category.Name
+                                                </option> 
+                                            }
+                                    </select>
+                                </div>
+
+                                @foreach (var attr in ViewBag.AllAttr)
+                                {
+                                    <div class="col-12 form-group form-group--lg mb-0">
+                                        <label class="form-label">@attr.Name</label>
+                                        <select name="@attr.Name" class="input js-input-tags" multiple="multiple" data-placeholder="">
+                                             @foreach(var data in ViewData[attr.Name])
+                                                {
+                                                    <option value="@data.Id">
+                                                        @data.Name
+                                                    </option> 
+                                                }
+                                        </select>
+                                    </div>
+                                }
+
+                                <div class="col-12 form-group form-group--lg">
+                                    <label class="form-label">Product Images</label>
+                                    <div class="image-upload">
+                                        <div class="image-upload__drop">
+                                            <input class="image-upload__input" type="file" name="file_upload" multiple="multiple" accept="image/png, image/jpeg" />
+                                            <div class="image-upload__drop-text">
+                                                <svg class="icon-icon-upload">
+                                                    <use xlink:href="#icon-upload"></use>
+                                                </svg> <span>Drag and Drop or </span>  <span class="image-upload__drop-action text-blue">Browse</span>  <span>to upload</span>
+                                            </div>
+                                        </div>
+                                        <ul class="image-upload__list">
+                                            <li class="image-upload__item">
+                                                <div class="image-upload__progress">
+                                                    <div class="image-upload__progress-icon"></div>
+                                                </div>
+                                                <div class="image-upload__action-remove">
+                                                    <svg class="icon-icon-cross">
+                                                        <use xlink:href="#icon-cross"></use>
+                                                    </svg>
+                                                </div>
+                                            </li>
+                                            <li class="image-upload__item">
+                                                <div class="image-upload__progress">
+                                                    <div class="image-upload__progress-icon"></div>
+                                                </div>
+                                                <div class="image-upload__action-remove">
+                                                    <svg class="icon-icon-cross">
+                                                        <use xlink:href="#icon-cross"></use>
+                                                    </svg>
+                                                </div>
+                                            </li>
+                                            <li class="image-upload__item">
+                                                <div class="image-upload__progress">
+                                                    <div class="image-upload__progress-icon"></div>
+                                                </div>
+                                                <div class="image-upload__action-remove">
+                                                    <svg class="icon-icon-cross">
+                                                        <use xlink:href="#icon-cross"></use>
+                                                    </svg>
+                                                </div>
+                                            </li>
+                                            <li class="image-upload__item">
+                                                <div class="image-upload__progress">
+                                                    <div class="image-upload__progress-icon"></div>
+                                                </div>
+                                                <div class="image-upload__action-remove">
+                                                    <svg class="icon-icon-cross">
+                                                        <use xlink:href="#icon-cross"></use>
+                                                    </svg>
+                                                </div>
+                                            </li>
+                                            <li class="image-upload__item">
+                                                <div class="image-upload__progress">
+                                                    <div class="image-upload__progress-icon"></div>
+                                                </div>
+                                                <div class="image-upload__action-remove">
+                                                    <svg class="icon-icon-cross">
+                                                        <use xlink:href="#icon-cross"></use>
+                                                    </svg>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                        
+                                <button class="button button--primary button--block" type="submit">
+                                    <span class="button__text">Create</span>
+                                </button>
+                            </div>
+                    
+                        </form>
+                    </div>
+                </div>
+                @* <div class="modal__footer">
+                    <div class="modal__container">
+                        <div class="modal__footer-buttons">
+                            <div class="modal__footer-button">
+                                <button class="button button--primary button--block" data-dismiss="modal" data-modal="#addProductSuccess">
+                                    <span class="button__text">Create</span>
+                                </button>
+                            </div> 
+                            <div class="modal__footer-button">
+                                <button class="button button--secondary button--block" data-dismiss="modal">
+                                    <span class="button__text">Cancel</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div> *@
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal modal-compact modal-success scrollbar-thin" id="addProductSuccess" data-simplebar>
+    <div class="modal__overlay" data-dismiss="modal"></div>
+    <div class="modal__wrap">
+        <div class="modal__window">
+            <div class="modal__content">
+                <div class="modal__body">
+                    <div class="modal__container">
+                        <img class="modal-success__icon" src="~/Admin/img/content/checked-success.svg" alt="#">
+                        <h4 class="modal-success__title">Product was added</h4>
+                    </div>
+                </div>
+                <div class="modal-compact__buttons">
+                    <div class="modal-compact__button-item">
+                        <button class="modal-compact__button button" data-dismiss="modal" data-modal="#addProduct">
+                            <span class="button__text">Add new product</span>
+                        </button>
+                    </div>
+                    <div class="modal-compact__button-item">
+                        <button class="modal-compact__button button" data-dismiss="modal">
+                            <span class="button__text">Close</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@* <h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Abstract)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Img)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Slug)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Abstract)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Img)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Slug)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ *@

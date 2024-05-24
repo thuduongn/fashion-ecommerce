@@ -1,0 +1,47 @@
+﻿@model fashion.Data.User
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Areas/Admin/Views/Shared/_Custom_Layout.cshtml";
+}
+
+<main class="page-content">
+    <div class="container">
+        <div class="container">
+            <h1>Register</h1>
+            <h2>@ViewBag.error</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-area="Admin" asp-controller="Dashboard" asp-action="Register">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="UserName" class="control-label">User name</label>
+                            <input asp-for="UserName" class="form-control" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="Pd" class="control-label">Password</label>
+                            <input asp-for="Pd" type="password" class="form-control" />
+                            <span asp-validation-for="Pd" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div>
+                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Login">Back to Login</a>
+            </div>
+        </div>
+    </div>
+
+    
+
+</main>

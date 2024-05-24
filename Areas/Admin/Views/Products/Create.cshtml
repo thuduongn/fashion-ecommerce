@@ -1,0 +1,281 @@
+﻿@* ﻿@model fashion.Data.Product *@
+@* @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Custom_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<hr /> *@
+@* <div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Abstract" class="control-label"></label>
+                <input asp-for="Abstract" class="form-control" />
+                <span asp-validation-for="Abstract" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Img" class="control-label"></label>
+                <input asp-for="Img" class="form-control" />
+                <span asp-validation-for="Img" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Slug" class="control-label"></label>
+                <input asp-for="Slug" class="form-control" />
+                <span asp-validation-for="Slug" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedAt" class="control-label"></label>
+                <input asp-for="CreatedAt" class="form-control" />
+                <span asp-validation-for="CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdatedBy" class="control-label"></label>
+                <input asp-for="UpdatedBy" class="form-control" />
+                <span asp-validation-for="UpdatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdatedAt" class="control-label"></label>
+                <input asp-for="UpdatedAt" class="form-control" />
+                <span asp-validation-for="UpdatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrandId" class="control-label"></label>
+                <select asp-for="BrandId" class ="form-control" asp-items="ViewBag.BrandId"></select>
+            </div>
+            <div class="form-group">
+                <label  class="control-label"></label>
+                <select name="CategoryId" class="form-control" asp-items="ViewBag.BrandId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrandId" class="control-label"></label>
+                <select asp-for="BrandId" class="form-control" asp-items="ViewBag.BrandId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+*@
+
+
+@* @model fashion.Data.Product
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Custom_Layout.cshtml";
+}
+
+
+
+<main class="page-content">
+    <div class="container">
+        <h1>Create</h1>
+
+        <h4>Product</h4>
+        <hr />
+        <div class="modal__body">
+            <div class="modal__container">
+                @* @using (Html.BeginForm("Test", "Products", new { area = "Admin" }, FormMethod.Post, false, null))
+                { 
+                <form asp-area="Admin" asp-controller="Products" asp-action="Test" method="POST" enctype="multipart/form-data">
+                    <div class="row row--md">
+                        <div class="col-12 form-group form-group--lg">
+                            <label class="form-label">Product Name</label>
+                            <div class="input-group">
+                                <input name="name" class="input" type="text" placeholder="" value="Apple Watch Series 4" required>
+                            </div>
+                        </div
+                        <div class="col-12 form-group form-group--lg">
+                            <label class="form-label">Slug</label>
+                            <div class="input-group">
+                                <input name="slug" class="input" type="text" placeholder="" value="Apple-Watch-Series-4" required>
+                            </div>
+                        </div>
+                        <div class="col-12 form-group form-group--lg">
+                            <label class="form-label">Abstract</label>
+                            <div class="input-editor">
+                                <textarea class="js-description-editor" name="abstract" rows="4">
+                                                Fundamentally redesigned and reengineered. The largest Apple Watch display yet. Built-in electrical heart sensor. New Digital Crown with haptic feedback. Low and high heart rate notifications. Fall detection
+                                                and Emergency SOS.
+                                            </textarea>
+                            </div>
+                        </div>
+                        <div class="col-12 form-group form-group--lg">
+                            <label class="form-label">Description</label>
+                            <div class="input-editor">
+                                <textarea class="js-description-editor" name="desc" rows="4">
+                                                Fundamentally redesigned and reengineered. The largest Apple Watch display yet. Built-in electrical heart sensor. New Digital Crown with haptic feedback. Low and high heart rate notifications. Fall detection
+                                                and Emergency SOS.
+                                            </textarea>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 form-group form-group--lg">
+                            <label class="form-label">Price</label>
+                            <div class="input-group input-group--prepend">
+                                <div class="input-group__prepend">
+                                    <span class="input-group__symbol">$</span>
+                                </div>
+                                <input name="price" class="input" type="number" min="0" max="999999999" placeholder="" value="399" required>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 form-group form-group--lg">
+                            <label class="form-label">Quantity</label>
+                            <div class="input-group input-group--prepend">
+                                <div class="input-group__prepend">
+                                    <span class="input-group__symbol">%</span>
+                                </div>
+                                <input name="quantity" class="input" type="number" min="0" max="100" placeholder="" value="10" required>
+                            </div>
+                        </div>
+                        <div class="col-12 form-group form-group--lg">
+                            <label class="form-label">Brands</label>
+                            <div class="input-group input-group--append">
+                                <select class="input js-input-select input--fluid" name="brands" data-placeholder="">
+                                    @foreach(var brand in ViewBag.BrandId)
+                                    {
+                                        <option value="@brand.Id">
+                                            @brand.Name
+                                        </option> 
+                                    }
+                                </select>
+                                <span class="input-group__arrow">
+                                    <svg class="icon-icon-keyboard-down">
+                                        <use xlink:href="#icon-keyboard-down"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 form-group form-group--lg mb-0">
+                            <label class="form-label">Categories</label>
+                            <select name="categories" class="input js-input-tags" multiple="multiple" data-placeholder="">
+                                @foreach(var category in ViewBag.CategoryId)
+                                    {
+                                        <option value="@category.Id">
+                                            @category.Name
+                                        </option> 
+                                    }
+                            </select>
+                        </div>
+
+                        @foreach (var attr in ViewBag.AllAttr)
+                        {
+                            <div class="col-12 form-group form-group--lg mb-0">
+                                <label class="form-label">@attr.Name</label>
+                                <select name="@attr.Name" class="input js-input-tags" multiple="multiple" data-placeholder="">
+                                     @foreach(var data in ViewData[attr.Name])
+                                        {
+                                            <option value="@data.Id">
+                                                @data.Name
+                                            </option> 
+                                        }
+                                </select>
+                            </div>
+                        }
+
+                        
+
+                        <div class="col-12 form-group form-group--lg">
+                            <label class="form-label">Product Images</label>
+                            <div class="image-upload">
+                                <div class="image-upload__drop">
+                                    <input class="image-upload__input" type="file" name="file_upload" multiple="multiple" accept="image/png, image/jpeg" />
+                                    <div class="image-upload__drop-text">
+                                        <svg class="icon-icon-upload">
+                                            <use xlink:href="#icon-upload"></use>
+                                        </svg> <span>Drag and Drop or </span>  <span class="image-upload__drop-action text-blue">Browse</span>  <span>to upload</span>
+                                    </div>
+                                </div>
+                                <ul class="image-upload__list">
+                                    <li class="image-upload__item">
+                                        <div class="image-upload__progress">
+                                            <div class="image-upload__progress-icon"></div>
+                                        </div>
+                                        <div class="image-upload__action-remove">
+                                            <svg class="icon-icon-cross">
+                                                <use xlink:href="#icon-cross"></use>
+                                            </svg>
+                                        </div>
+                                    </li>
+                                    <li class="image-upload__item">
+                                        <div class="image-upload__progress">
+                                            <div class="image-upload__progress-icon"></div>
+                                        </div>
+                                        <div class="image-upload__action-remove">
+                                            <svg class="icon-icon-cross">
+                                                <use xlink:href="#icon-cross"></use>
+                                            </svg>
+                                        </div>
+                                    </li>
+                                    <li class="image-upload__item">
+                                        <div class="image-upload__progress">
+                                            <div class="image-upload__progress-icon"></div>
+                                        </div>
+                                        <div class="image-upload__action-remove">
+                                            <svg class="icon-icon-cross">
+                                                <use xlink:href="#icon-cross"></use>
+                                            </svg>
+                                        </div>
+                                    </li>
+                                    <li class="image-upload__item">
+                                        <div class="image-upload__progress">
+                                            <div class="image-upload__progress-icon"></div>
+                                        </div>
+                                        <div class="image-upload__action-remove">
+                                            <svg class="icon-icon-cross">
+                                                <use xlink:href="#icon-cross"></use>
+                                            </svg>
+                                        </div>
+                                    </li>
+                                    <li class="image-upload__item">
+                                        <div class="image-upload__progress">
+                                            <div class="image-upload__progress-icon"></div>
+                                        </div>
+                                        <div class="image-upload__action-remove">
+                                            <svg class="icon-icon-cross">
+                                                <use xlink:href="#icon-cross"></use>
+                                            </svg>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <button class="button button--primary button--block" type="submit">
+                            <span class="button__text">Create</span>
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</main> *@
