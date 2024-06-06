@@ -7,7 +7,7 @@ public partial class Order
 {
     public int Id { get; set; }
 
-    public int? TotalPrice { get; set; }
+    public decimal? TotalPrice { get; set; }
 
     public string? Note { get; set; }
 

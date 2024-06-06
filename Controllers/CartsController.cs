@@ -353,7 +353,7 @@ namespace fashion.Controllers
             //    ViewBag.error = "There need to be at least 1 product in the cart.";
             //    return RedirectToAction("Index", "Carts");
             //}
-            var sum = 0;
+            decimal sum = 0;
             foreach (var item in cart)
             {
                 if (item.Quantity > item.Product.Quantity)
@@ -366,8 +366,8 @@ namespace fashion.Controllers
                     var content = "Sản phẩm " + item.Product.Name + " không tồn tại";
                     return Json(new { success = false, content = content });
                 }
-                var quantity = item.Quantity ?? 0; // Chuyển đổi từ int? sang int
-                var price = item.Product?.Price ?? 0; // Chuyển đổi từ int? sang int
+                var quantity = item.Quantity ?? 0; 
+                var price = item.Product?.Price ?? 0; 
                 sum += quantity * price;
             }
             var fee = 20000;

@@ -6,7 +6,7 @@
 
 <div class="container-fluid pt-5">
     <div class="text-center mb-4">
-        <h2 class="section-title px-5"><span class="px-2">Trendy Products</span></h2>
+        <h2 class="section-title px-5"><span class="px-2">All Products</span></h2>
     </div>
     <div class="row px-xl-5 pb-3">
         @foreach (var product in trendyProducts) {
@@ -18,7 +18,7 @@
                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                         <h6 class="text-truncate mb-3">@product.Name</h6>
                         <div class="d-flex justify-content-center">
-                            <h6>@product.Price</h6><h6 class="text-muted ml-2"><del>@product.Price</del></h6>
+                            <h6>$@product.Price</h6><h6 class="text-muted ml-2"><del>$@product.Price</del></h6>
                         </div>
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light border">

@@ -23,7 +23,5 @@ public partial class Brand
 
     public int UpdatedAt { get; set; }
 
-    public string? Test { get; set; }
-
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

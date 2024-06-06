@@ -3,15 +3,17 @@
 @{
     var isLoggedIn = @HttpContextAccessor.HttpContext.Session.GetInt32("IdCustomer") != null;
 }
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 
 <aside class="sidebar">
     <div class="sidebar__backdrop"></div>
     <div class="sidebar__container">
         <div class="sidebar__top">
             <div class="container container--sm">
-                <a class="sidebar__logo" href="index.html">
+                <a asp-area="Admin" asp-controller="User" asp-action="Index" class="sidebar__logo">
                     <img class="sidebar__logo-icon" src="~/Admin/img/content/logotype.svg" alt="#" width="44" />
-                    <div class="sidebar__logo-text">arion</div>
+                    <div class="sidebar__logo-text">admin</div>
                 </a>
             </div>
         </div>
@@ -49,167 +51,15 @@
                                     <a asp-area="Admin" asp-controller="Orders" asp-action="Index" class="sidebar__link"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Orders</span></a>
                                 </li>
                                 @* <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="Admin/OrderDetails"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Order Details</span></a>
-                                </li> *@
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="Admin/OrderDetails/Order_Invoice"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Order Invoice</span></a>
-                                </li>
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="Admin/Orders/Order_Status"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Order Status</span></a>
-                                </li>
-                                <li class="sidebar__menu-item">
-                                    <a asp-area="Admin" asp-controller="Orders" asp-action="Order_History" class="sidebar__link"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Order History</span></a>
-                                </li>
-                                @* <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="order-history-v2.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Order History V.2</span></a>
-                                </li> *@
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="Admin/Orders/Order_Notes"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Order Notes</span></a>
-                                </li>
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="Admin/Orders/Order_Messages"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Order Messages</span></a>
-                                </li>
-                                @* <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="order-messages-v2.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Order Messages V.2</span></a>
-                                </li> *@
-                                <li class="sidebar__menu-item">
                                     <a asp-are="Admin" asp-controller="Customers" asp-action="Index" class="sidebar__link"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Customers</span></a>
-                                </li>
+                                </li> 
                                 <li class="sidebar__menu-item">
                                     <a class="sidebar__link" href="Admin/Customers/Customer_Account"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Account</span></a>
-                                </li>
-                                @* <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="customer-account-v2.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Account V.2</span></a>
                                 </li> *@
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="customer-wishlist.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Wish List</span></a>
-                                </li>
-                                <li class="sidebar__menu-item">
-                                    <a asp-area="Admin" asp-controller="Reviews" asp-action="Index" class="sidebar__link"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Reviews</span></a>
-                                </li>
                             </ul>
                         </div>
                     </li>
-                    <li class="sidebar__menu-item">
-                        <a class="sidebar__link" href="calendar.html" aria-expanded="false">
-                            <span class="sidebar__link-icon">
-                                <svg class="icon-icon-calendar">
-                                    <use xlink:href="#icon-calendar"></use>
-                                </svg>
-                            </span><span class="sidebar__link-text">Calendar</span>
-                        </a>
-                    </li>
-                    <li class="sidebar__menu-item">
-                        <a class="sidebar__link" href="mail.html" aria-expanded="false">
-                            <span class="sidebar__link-icon">
-                                <svg class="icon-icon-email">
-                                    <use xlink:href="#icon-email"></use>
-                                </svg>
-                            </span><span class="sidebar__link-text">Mail</span><span class="badge badge--red">20</span>
-                        </a>
-                    </li>
-                    <li class="sidebar__menu-item">
-                        <a class="sidebar__link" href="chat.html" aria-expanded="false">
-                            <span class="sidebar__link-icon">
-                                <svg class="icon-icon-chat">
-                                    <use xlink:href="#icon-chat"></use>
-                                </svg>
-                            </span><span class="sidebar__link-text">Chat</span>
-                        </a>
-                    </li>
-                    <li class="sidebar__menu-item">
-                        <a class="sidebar__link" href="contacts.html" aria-expanded="false">
-                            <span class="sidebar__link-icon">
-                                <svg class="icon-icon-contacts">
-                                    <use xlink:href="#icon-contacts"></use>
-                                </svg>
-                            </span><span class="sidebar__link-text">Contacts</span>
-                        </a>
-                    </li>
-                    <li class="sidebar__menu-item">
-                        <a class="sidebar__link" href="todo.html" aria-expanded="false">
-                            <span class="sidebar__link-icon">
-                                <svg class="icon-icon-todo">
-                                    <use xlink:href="#icon-todo"></use>
-                                </svg>
-                            </span><span class="sidebar__link-text">ToDo</span>
-                        </a>
-                    </li>
-                    <li class="sidebar__menu-item">
-                        <a class="sidebar__link" href="file-manager.html" aria-expanded="false">
-                            <span class="sidebar__link-icon">
-                                <svg class="icon-icon-folder">
-                                    <use xlink:href="#icon-folder"></use>
-                                </svg>
-                            </span><span class="sidebar__link-text">File Manager</span>
-                        </a>
-                    </li>
-                    <li class="sidebar__menu-item">
-                        <a class="sidebar__link" href="timeline.html" aria-expanded="false">
-                            <span class="sidebar__link-icon">
-                                <svg class="icon-icon-clock">
-                                    <use xlink:href="#icon-clock"></use>
-                                </svg>
-                            </span><span class="sidebar__link-text">Timeline</span>
-                        </a>
-                    </li>
-                    <li class="sidebar__menu-item">
-                        <a class="sidebar__link" href="#" data-toggle="collapse" data-target="#Auth" aria-expanded="false">
-                            <span class="sidebar__link-icon">
-                                <svg class="icon-icon-password">
-                                    <use xlink:href="#icon-password"></use>
-                                </svg>
-                            </span><span class="sidebar__link-text">Authentication</span><span class="sidebar__link-arrow">
-                                <svg class="icon-icon-keyboard-down">
-                                    <use xlink:href="#icon-keyboard-down"></use>
-                                </svg>
-                            </span>
-                        </a>
-                        <div class="collapse" id="Auth">
-                            <ul class="sidebar__collapse-menu">
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="auth-login.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Login</span></a>
-                                </li>
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="auth-login-v2.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Login V.2</span></a>
-                                </li>
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="auth-login-v3.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Login V.3</span></a>
-                                </li>
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="auth-create.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Create Account</span></a>
-                                </li>
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="auth-create-v2.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Create Account V.2</span></a>
-                                </li>
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="auth-create-v3.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Create Account V.3</span></a>
-                                </li>
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="auth-lock.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Lock</span></a>
-                                </li>
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="auth-lock-v2.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Lock V.2</span></a>
-                                </li>
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="auth-lock-v3.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Lock V.3</span></a>
-                                </li>
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="auth-forgot.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Forgot</span></a>
-                                </li>
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="auth-forgot-v2.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Forgot V.2</span></a>
-                                </li>
-                                <li class="sidebar__menu-item">
-                                    <a class="sidebar__link" href="auth-forgot-v3.html"><span class="sidebar__link-signal"></span><span class="sidebar__link-text">Forgot V.3</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="sidebar__menu-item">
-                        <a class="sidebar__link" href="404.html" aria-expanded="false"><span class="sidebar__link-icon"></span><span class="sidebar__link-text">404</span></a>
-                    </li>
-                    <li class="sidebar__menu-item">
+                    @* <li class="sidebar__menu-item">
                         <a class="sidebar__link" href="ui-kit.html" aria-expanded="false">
                             <span class="sidebar__link-icon">
                                 <svg class="icon-icon-settings">
@@ -217,7 +67,7 @@
                                 </svg>
                             </span><span class="sidebar__link-text">UI Kit</span>
                         </a>
-                    </li>
+                    </li> *@
                 </ul>
             </nav>
         </div>

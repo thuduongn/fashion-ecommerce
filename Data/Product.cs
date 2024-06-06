@@ -9,7 +9,7 @@ public partial class Product
 
     public string Name { get; set; } = null!;
 
-    public int? Price { get; set; }
+    public decimal? Price { get; set; }
 
     public string? Abstract { get; set; }
 

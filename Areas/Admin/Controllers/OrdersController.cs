@@ -47,7 +47,7 @@ namespace fashion.Areas.Admin.Controllers
                 .ThenInclude(od => od.Product)
                 .FirstOrDefaultAsync(m => m.Id == id);
             var finalHandler = _context.OrderHistories.Include(o => o.User).Where(o => o.OrderId == id).OrderByDescending(o => o.Id).FirstOrDefault();
-            if(finalHandler == null)
+            if (finalHandler == null)
             {
                 ViewBag.FinalHandler = null;
             }
@@ -66,7 +66,7 @@ namespace fashion.Areas.Admin.Controllers
         // GET: Admin/Orders/Order_Invoice
         public async Task<IActionResult> OrderHistory(int ?id)
         {
-            var histories = _context.OrderHistories.Include(o => o.User).Include( o=> o.Order).Where(o => o.OrderId == id);
+            var histories = _context.OrderHistories.Include(o => o.User).Include(o => o.Order).Where(o => o.OrderId == id);
             ViewBag.OrderId = id;
             return View(await histories.ToListAsync());
         }

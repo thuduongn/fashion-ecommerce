@@ -155,6 +155,40 @@ namespace fashion.Areas.Admin.Controllers
             return _context.Users.Any(e => e.Id == id);
         }
 
+        public ActionResult Register()
+        {
+            if (HttpContext.Session.GetInt32("IdUser") != null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Register(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                var check = _context.Users.FirstOrDefault(u => u.UserName == user.UserName);
+
+                if (check == null)
+                {
+                    user.Pd = PasswordHasher.HashPassword(user.Pd);
+                    _context.Users.Add(user);
+                    _context.SaveChanges();
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    ViewBag.error = "User name already exists";
+                    return View();
+                }
+            }
+            return View();
+        }
+
         public ActionResult Login()
         {
             if (HttpContext.Session.GetInt32("IdUser") != null)

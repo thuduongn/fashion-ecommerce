@@ -77,9 +77,9 @@ namespace fashion.Controllers
             }
             else
             {
-                var avgRating = totalRating / reviewCount;
+                int avgRating = totalRating / reviewCount;
                 ViewBag.AvgRating = avgRating;
-                var remainder = avgRating * 10 % reviewCount;
+                int remainder = (totalRating * 10) % reviewCount;
                 ViewBag.Remainder = remainder;
             }
 

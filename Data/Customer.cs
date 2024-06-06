@@ -15,13 +15,13 @@ public partial class Customer
 
     public string Location { get; set; } = null!;
 
-    public int CreatedBy { get; set; }
+    public int? CreatedBy { get; set; }
 
-    public int CreatedAt { get; set; }
+    public int? CreatedAt { get; set; }
 
-    public int UpdatedBy { get; set; }
+    public int? UpdatedBy { get; set; }
 
-    public int UpdatedAt { get; set; }
+    public int? UpdatedAt { get; set; }
 
     public string? Pd { get; set; }
 

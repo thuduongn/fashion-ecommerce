@@ -21,6 +21,8 @@ public partial class Cart
 
     public int? CustomerId { get; set; }
 
+    public string? Attribute { get; set; }
+
     public virtual Customer? Customer { get; set; }
 
     public virtual Product? Product { get; set; }

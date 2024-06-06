@@ -39,19 +39,17 @@ public partial class FashionContext : DbContext
 
     public virtual DbSet<Review> Reviews { get; set; }
 
-    public virtual DbSet<Test> Tests { get; set; }
-
     public virtual DbSet<User> Users { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=T14\\wind;Initial Catalog=fashion;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+//        => optionsBuilder.UseSqlServer("Data Source=DUONG\\MSSQLSERVER02;Initial Catalog=fashion;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Attribute>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__attribut__3213E83F516EFBCC");
+            entity.HasKey(e => e.Id).HasName("PK__attribut__3213E83FF6D045B8");
 
             entity.ToTable("attributes");
 
@@ -71,11 +69,11 @@ public partial class FashionContext : DbContext
 
         modelBuilder.Entity<Brand>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__brands__3213E83F986773AD");
+            entity.HasKey(e => e.Id).HasName("PK__brands__3213E83F58FE7E3D");
 
             entity.ToTable("brands");
 
-            entity.HasIndex(e => e.Slug, "UQ__brands__32DD1E4C028755F9").IsUnique();
+            entity.HasIndex(e => e.Slug, "UQ__brands__32DD1E4CDAD66F58").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CreatedAt).HasColumnName("created_at");
@@ -92,21 +90,21 @@ public partial class FashionContext : DbContext
             entity.Property(e => e.Slug)
                 .HasMaxLength(100)
                 .HasColumnName("slug");
-            entity.Property(e => e.Test)
-                .HasMaxLength(255)
-                .IsUnicode(false)
-                .HasColumnName("test");
             entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
             entity.Property(e => e.UpdatedBy).HasColumnName("updated_by");
         });
 
         modelBuilder.Entity<Cart>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__carts__3213E83F3BD2813D");
+            entity.HasKey(e => e.Id).HasName("PK__carts__3213E83FC4EA23EB");
 
             entity.ToTable("carts");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Attribute)
+                .HasMaxLength(50)
+                .HasDefaultValue("{size: M, color: black}")
+                .HasColumnName("attribute");
             entity.Property(e => e.CreatedAt).HasColumnName("created_at");
             entity.Property(e => e.CreatedBy).HasColumnName("created_by");
             entity.Property(e => e.CustomerId).HasColumnName("customer_id");
@@ -119,20 +117,20 @@ public partial class FashionContext : DbContext
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__carts__customer___52593CB8");
+                .HasConstraintName("FK__carts__customer___49C3F6B7");
 
             entity.HasOne(d => d.Product).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__carts__product_i__534D60F1");
+                .HasConstraintName("FK__carts__product_i__48CFD27E");
         });
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__categori__3213E83F712DF72D");
+            entity.HasKey(e => e.Id).HasName("PK__categori__3213E83F54782518");
 
             entity.ToTable("categories");
 
-            entity.HasIndex(e => e.Slug, "UQ__categori__32DD1E4C7A48EFD9").IsUnique();
+            entity.HasIndex(e => e.Slug, "UQ__categori__32DD1E4C41D16A52").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.CreatedAt).HasColumnName("created_at");
@@ -156,9 +154,11 @@ public partial class FashionContext : DbContext
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__customer__3213E83F461F94BD");
+            entity.HasKey(e => e.Id).HasName("PK__customer__3213E83F41B82988");
 
             entity.ToTable("customers");
+
+            entity.HasIndex(e => e.Email, "UniqueEmailConstraint").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.ActivationCode)
@@ -193,7 +193,7 @@ public partial class FashionContext : DbContext
 
         modelBuilder.Entity<LnkProductAttribute>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__lnk_prod__3213E83F3943F7FE");
+            entity.HasKey(e => e.Id).HasName("PK__lnk_prod__3213E83F85F76DB9");
 
             entity.ToTable("lnk_product_attribute");
 
@@ -207,16 +207,16 @@ public partial class FashionContext : DbContext
 
             entity.HasOne(d => d.Attribute).WithMany(p => p.LnkProductAttributes)
                 .HasForeignKey(d => d.AttributeId)
-                .HasConstraintName("FK__lnk_produ__attri__5441852A");
+                .HasConstraintName("FK__lnk_produ__attri__59063A47");
 
             entity.HasOne(d => d.Product).WithMany(p => p.LnkProductAttributes)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__lnk_produ__produ__5535A963");
+                .HasConstraintName("FK__lnk_produ__produ__5812160E");
         });
 
         modelBuilder.Entity<LnkProductCategory>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__lnk_prod__3213E83F566D30A6");
+            entity.HasKey(e => e.Id).HasName("PK__lnk_prod__3213E83F4B8509C4");
 
             entity.ToTable("lnk_product_category");
 
@@ -230,16 +230,16 @@ public partial class FashionContext : DbContext
 
             entity.HasOne(d => d.Category).WithMany(p => p.LnkProductCategories)
                 .HasForeignKey(d => d.CategoryId)
-                .HasConstraintName("FK__lnk_produ__categ__5629CD9C");
+                .HasConstraintName("FK__lnk_produ__categ__5CD6CB2B");
 
             entity.HasOne(d => d.Product).WithMany(p => p.LnkProductCategories)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__lnk_produ__produ__571DF1D5");
+                .HasConstraintName("FK__lnk_produ__produ__5BE2A6F2");
         });
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__orders__3213E83F0DCF5CAB");
+            entity.HasKey(e => e.Id).HasName("PK__orders__3213E83FC177A1E3");
 
             entity.ToTable("orders");
 
@@ -253,18 +253,20 @@ public partial class FashionContext : DbContext
                 .HasColumnName("note");
             entity.Property(e => e.OrderDate).HasColumnName("order_date");
             entity.Property(e => e.Status).HasColumnName("status");
-            entity.Property(e => e.TotalPrice).HasColumnName("total_price");
+            entity.Property(e => e.TotalPrice)
+                .HasColumnType("decimal(18, 0)")
+                .HasColumnName("total_price");
             entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
             entity.Property(e => e.UpdatedBy).HasColumnName("updated_by");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__orders__customer__59FA5E80");
+                .HasConstraintName("FK__orders__customer__4CA06362");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__order_de__3213E83FEB122077");
+            entity.HasKey(e => e.Id).HasName("PK__order_de__3213E83F4A4961D5");
 
             entity.ToTable("order_detail");
 
@@ -272,7 +274,9 @@ public partial class FashionContext : DbContext
             entity.Property(e => e.CreatedAt).HasColumnName("created_at");
             entity.Property(e => e.CreatedBy).HasColumnName("created_by");
             entity.Property(e => e.OrderId).HasColumnName("order_id");
-            entity.Property(e => e.Price).HasColumnName("price");
+            entity.Property(e => e.Price)
+                .HasColumnType("decimal(18, 0)")
+                .HasColumnName("price");
             entity.Property(e => e.ProductId).HasColumnName("product_id");
             entity.Property(e => e.Quantity).HasColumnName("quantity");
             entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
@@ -280,16 +284,16 @@ public partial class FashionContext : DbContext
 
             entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("FK__order_det__order__5812160E");
+                .HasConstraintName("FK__order_det__order__5070F446");
 
             entity.HasOne(d => d.Product).WithMany(p => p.OrderDetails)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__order_det__produ__59063A47");
+                .HasConstraintName("FK__order_det__produ__4F7CD00D");
         });
 
         modelBuilder.Entity<OrderHistory>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__order_hi__3213E83FF74EDC89");
+            entity.HasKey(e => e.Id).HasName("PK__order_hi__3213E83F239CD03A");
 
             entity.ToTable("order_history");
 
@@ -304,20 +308,20 @@ public partial class FashionContext : DbContext
 
             entity.HasOne(d => d.Order).WithMany(p => p.OrderHistories)
                 .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("fk_order_history");
+                .HasConstraintName("FK_OrderHistories_Orders");
 
             entity.HasOne(d => d.User).WithMany(p => p.OrderHistories)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("fk_user_history");
+                .HasConstraintName("FK_OrderHistories_Users");
         });
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__products__3213E83F9E40BE96");
+            entity.HasKey(e => e.Id).HasName("PK__products__3213E83FC7B6341B");
 
             entity.ToTable("products");
 
-            entity.HasIndex(e => e.Slug, "UQ__products__32DD1E4C52B001BA").IsUnique();
+            entity.HasIndex(e => e.Slug, "UQ__products__32DD1E4C741DE7BE").IsUnique();
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Abstract)
@@ -340,6 +344,7 @@ public partial class FashionContext : DbContext
                 .HasColumnName("name");
             entity.Property(e => e.Price)
                 .HasDefaultValueSql("('0')")
+                .HasColumnType("decimal(18, 0)")
                 .HasColumnName("price");
             entity.Property(e => e.Quantity)
                 .HasDefaultValueSql("('1')")
@@ -353,12 +358,12 @@ public partial class FashionContext : DbContext
 
             entity.HasOne(d => d.Brand).WithMany(p => p.Products)
                 .HasForeignKey(d => d.BrandId)
-                .HasConstraintName("FK__products__brand___5AEE82B9");
+                .HasConstraintName("FK__products__brand___412EB0B6");
         });
 
         modelBuilder.Entity<Review>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__reviews__3213E83F0D43DB91");
+            entity.HasKey(e => e.Id).HasName("PK__reviews__3213E83FF467FC19");
 
             entity.ToTable("reviews");
 
@@ -380,40 +385,30 @@ public partial class FashionContext : DbContext
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Reviews)
                 .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__reviews__custome__5BE2A6F2");
+                .HasConstraintName("FK__reviews__custome__5535A963");
 
             entity.HasOne(d => d.Product).WithMany(p => p.Reviews)
                 .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__reviews__product__5CD6CB2B");
-        });
-
-        modelBuilder.Entity<Test>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToTable("test");
-
-            entity.Property(e => e.Test1)
-                .HasMaxLength(10)
-                .IsFixedLength()
-                .HasColumnName("test");
+                .HasConstraintName("FK__reviews__product__5441852A");
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__users__3213E83FD737B878");
+            entity.HasKey(e => e.Id).HasName("PK_User_Id");
 
             entity.ToTable("users");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Name)
-                .HasMaxLength(100)
+                .HasMaxLength(50)
                 .HasColumnName("name");
             entity.Property(e => e.Pd)
-                .HasMaxLength(255)
+                .HasMaxLength(100)
+                .IsUnicode(false)
                 .HasColumnName("pd");
             entity.Property(e => e.UserName)
-                .HasMaxLength(100)
+                .HasMaxLength(50)
+                .IsUnicode(false)
                 .HasColumnName("user_name");
         });
 
