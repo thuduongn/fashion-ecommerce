@@ -31,7 +31,7 @@
                 } else {
                     $.notify(response.content, "warn");
                     setTimeout(function () {
-                        window.location.href = 'http://localhost:5074/home/login';
+                        window.location.href = 'https://fashion20240606085625.azurewebsites.net/home/login';
                     }, 2000);
                 }
             },

@@ -82,7 +82,7 @@ namespace fashion.Controllers
 
                     customer.ActivationCode = randomNumber.ToString();
 
-                    string body = "Click <a href='http://localhost:5074//home/activation?email="
+                    string body = "Click <a href='https://fashion20240606085625.azurewebsites.net/home/activation?email="
                         + customer.Email + "&code=" + randomNumber.ToString() + "'>here</a>" +
                         " to activation account!!!";
 

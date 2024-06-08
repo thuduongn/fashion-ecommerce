@@ -174,7 +174,7 @@
         console.log(page);
         page = Number(page) == 1 ? 1 : Number(page) - 1;
         console.log(page);
-        let url = "http://localhost:5074/Admin/Products/Index?page=" + page + "&quantity=" + quantity + "&category=" + category + "&status=" + status + "&name=" + name;
+        let url = "https://fashion20240606085625.azurewebsites.net/Admin/Products/Index?page=" + page + "&quantity=" + quantity + "&category=" + category + "&status=" + status + "&name=" + name;
         console.log(url);
         window.location.href = url;
     });
@@ -196,7 +196,7 @@
         console.log('page = ' + page);
         page = Number(page) + 1;
        
-        let url = "http://localhost:5074/Admin/Products/Index?page=" + page + "&quantity=" + quantity + "&category=" + category + "&status=" + status + "&name=" + name;
+        let url = "https://fashion20240606085625.azurewebsites.net/Admin/Products/Index?page=" + page + "&quantity=" + quantity + "&category=" + category + "&status=" + status + "&name=" + name;
 
         console.log(url);
         window.location.href = url;
@@ -205,7 +205,7 @@
     $('#add-order-history').click(function () {
         let status = $('#select-status-order').val();;
         let id = $(this).attr('id-product');
-        let url = 'http://localhost:5074/Admin/Orders/AddOrderHistory?id=' + id + '&status=' + status;
+        let url = 'https://fashion20240606085625.azurewebsites.net/Admin/Orders/AddOrderHistory?id=' + id + '&status=' + status;
         window.location.href = url;
     });
 
