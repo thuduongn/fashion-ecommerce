@@ -10,7 +10,7 @@ Link Demo: https://fashion20240606085625.azurewebsites.net/
 
 ### Features
 
-#### <u> Admin-Side Features </u>
+#### <u>Admin-Side Features</u>
 
 ##### 1. Authentication:
   - Admin login/logout functionality.
@@ -23,7 +23,7 @@ Link Demo: https://fashion20240606085625.azurewebsites.net/
 ##### 4. Navigation Bar Search:
   - Search functionality integrated into the admin navigation bar.
 
-#### <u> Client-Side Features </u>
+#### <u>Client-Side Features</u>
 
 ##### 1. Authentication:
   - User login/logout functionality.
