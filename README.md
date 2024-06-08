@@ -23,7 +23,7 @@ Link Demo: https://fashion20240606085625.azurewebsites.net/
 ##### 4. Navigation Bar Search:
   - Search functionality integrated into the admin navigation bar.
 
-#### <u>Client-Side Features</u>
+#### <ins>Client-Side Features</ins>
 
 ##### 1. Authentication:
   - User login/logout functionality.
