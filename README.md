@@ -12,29 +12,29 @@ Link Demo: https://fashion20240606085625.azurewebsites.net/
 
 #### Admin-Side Features
 
-**Authentication:**
+##### 1. Authentication:
   - Admin login/logout functionality.
-**Product Management:**
+##### 2. Product Management:
   - Add, edit, and delete products.
-**Order Processing:**
+##### 3. Order Processing:
   - View and manage customer orders.
   - Order Status
   - Order History
-**Navigation Bar Search:**
+##### 4. Navigation Bar Search:
   - Search functionality integrated into the admin navigation bar.
 
 #### Client-Side Features
 
-**Authentication:**
+##### 1. Authentication:
   - User login/logout functionality.
   - Email account activation.
-**Product Display:**
+##### 2. Product Display:
   - Display a list of products with detailed views.
-**Cart Management:**
+##### 3. Cart Management:
   - Add, edit, and remove products from the cart.
-**Checkout Process:**
+##### 4. Checkout Process:
   - Manage the entire checkout process.
-**Navigation Bar Search:**
+##### 5. Navigation Bar Search:
   - Search functionality integrated into the client navigation bar.
-**Reviews:**
+##### 6. Reviews:
   - Submit and view star-rated reviews for products.
