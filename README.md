@@ -10,7 +10,7 @@ Link Demo: https://fashion20240606085625.azurewebsites.net/
 
 ### Features
 
-#### <u>Admin-Side Features</u>
+#### <ins>Admin-Side Features</ins>
 
 ##### 1. Authentication:
   - Admin login/logout functionality.
