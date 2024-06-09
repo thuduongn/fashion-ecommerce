@@ -4,9 +4,10 @@ Link Demo: https://fashion20240606085625.azurewebsites.net/
 ### Technologies
 - C# ASP.NET MVC
 - SQL Server
+- Azure
 - JavaScript (Ajax, jQuery)
 - HTML/CSS
-- Azure
+- JSON
 
 ### Features
 
