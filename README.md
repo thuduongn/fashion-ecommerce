@@ -4,9 +4,10 @@ Link Demo: https://fashion20240606085625.azurewebsites.net/
 ### Technologies
 - C# ASP.NET MVC
 - SQL Server
+- Azure
 - JavaScript (Ajax, jQuery)
 - HTML/CSS
-- Azure
+- JSON
 
 ### Features
 
@@ -16,6 +17,7 @@ Link Demo: https://fashion20240606085625.azurewebsites.net/
   - Admin login/logout functionality.
 ##### 2. Product Management:
   - Add, edit, and delete products.
+  - Review Management.
 ##### 3. Order Processing:
   - View and manage customer orders.
   - Order Status
