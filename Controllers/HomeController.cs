@@ -84,7 +84,7 @@ namespace fashion.Controllers
 
                     string body = "Click <a href='https://fashion20240606085625.azurewebsites.net/home/activation?email="
                         + customer.Email + "&code=" + randomNumber.ToString() + "'>here</a>" +
-                        " to activation account!!!";
+                        " to activate account!!!";
 
                     _context.Customers.Add(customer);
                     _context.SaveChanges();

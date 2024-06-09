@@ -436,17 +436,17 @@
                                     <select name="category" class="input js-input-tags" multiple="multiple" data-placeholder="">
                                         @foreach (var category in ViewBag.CategoryId)
                                         {
-                                            @* <option value="@category.Id">
-                                        @category.Name
-                                        </option> *@
-                                            @if (category.Id == ViewBag.Categories.Id)
+                                            <option value="@category.Id">
+                                                @category.Name
+                                            </option>
+                                            @* @if (category.Id == ViewBag.Categories.Id)
                                             {
                                                 <option value="@category.Id" selected>@category.Name</option>
                                             }
                                             else
                                             {
                                                 <option value="@category.Id">@category.Name</option>
-                                            }
+                                            } *@
                                         }
                                     </select>
                                 </div>
@@ -459,17 +459,17 @@
                                         <select name="@attr.Name" class="input js-input-tags" multiple="multiple" data-placeholder="">
                                             @foreach (var item in ViewData[attr.Name])
                                             {
-                                                @* <option value="@item.Id">
-                                        @item.Name
-                                        </option> *@
-                                                @if (item.Id == ViewData[attr.Name].Id)
+                                                <option value="@item.Id">
+                                                    @item.Name
+                                                </option>
+                                                @* @if (item.Id == ViewData[attr.Name].Id)
                                                 {
                                                     <option value="@item.Id" selected>@item.Name</option>
                                                 }
                                                 else
                                                 {
                                                     <option value="@item.Id">@item.Name</option>
-                                                }
+                                                } *@
                                             }
                                         </select>
                                     </div>
